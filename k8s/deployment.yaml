@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kfp-metrics-collector
+  namespace: kubeflow
+  labels:
+    app: kfp-metrics-collector
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: kfp-metrics-collector
+  template:
+    metadata:
+      labels:
+        app: kfp-metrics-collector
+    spec:
+      containers:
+      - name: collector
+        image: {INSERT IMAGE}
+        ports:
+        - containerPort: 8080

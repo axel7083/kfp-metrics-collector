@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: kfp-metrics-collector
+  namespace: kubeflow
+spec:
+  selector:
+    app: kfp-metrics-collector
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080
+
